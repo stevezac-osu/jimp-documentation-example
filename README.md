@@ -283,7 +283,112 @@ The Result is that:
 
 You can see that the image now retained it's original aspect ratio, but rescaled to the maximum of the sizes that it was provided.
 
+### Color
+There are four example color methods we will review, **brightness**, **contrast**, **greyscale**, and **invert**
 
+Both the **greyscale** and the **invert** methods take no arguments.  However, both the **brightness** and the **contrast** methods take one number argument, between -1 and 1, that represents the percentage to increase (positive) or decrease (negative) the brightness or the contrast of the image.
+
+#### Increase Brightness by 50%
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image has brightness increased, then written to a file on the hard disk.  
+	img.brightness(.5).write("./images/brightness-ex1.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image with increased brightness](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/brightness-ex1.png?raw=true)
+
+#### Decrease Brightness by 50%
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image has brightness decreased, then written to a file on the hard disk. 
+	img.brightness(-.5).write("./images/brightness-ex2.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image with decreased brightness](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/brightness-ex2.png?raw=true)
+
+#### Increase Contrast by 50%
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image has Contrast increased, then written to a file on the hard disk. 
+	img.contrast(.5).write("./images/contrast-ex1.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image with increased contrast](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/contrast-ex1.png?raw=true)
+
+#### Decrease Contrast by 50%
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image has Contrast decreased, then written to a file on the hard disk. 
+	img.contrast(-.5).write("./images/contrast-ex2.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image with decreased contrast](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/contrast-ex2.png?raw=true)
+
+#### Greyscale
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image has color removed, then written to a file on the hard disk. 
+	img.greyscale().write("./images/greyscale.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image greyed](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/greyscale.png?raw=true)
+
+#### Inverted Colors
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image has colors inverted, then written to a file on the hard disk. 
+	img.invert().write("./images/invert.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image inverted](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/invert.png?raw=true)
 
 
 ## Combined Examples
