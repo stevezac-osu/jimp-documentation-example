@@ -7,17 +7,17 @@
 - [Getting Started - Reading and Writing an Image File](#getting-started---reading-and-writing-an-image-file) 
   - [The Jimp.read() Method](#the-jimpread-method)
   - [The Image.write() Method](#the-imgwrite-method)
-- [Basic Manipulations](#basic-manipulations)
+- [Example Manipulations](#example-manipulations)
+  - [Rotating](#rotating)
+  - [Flipping](#flipping)
+  - [Resizing](#resizing)
+- [Combined Examples](#combined-examples)
+- [Complete List of Manipulations](#complete-list-of-manipulations)
 
 ## Introduction
-JIMP is an image processing library for Node written in JavaScript/TypeScript, with zero native dependencies.  JIMP is an acronym that stands for "JavaScript Image Manipulation Program." 
+JIMP is an image processing library for Node written in JavaScript/TypeScript, with zero native dependencies.  JIMP is an acronym that stands for "JavaScript Image Manipulation Program."
 
-JIMP can manipulate various image types, such as:
-- bmp
-- gif
-- jpeg/jpg
-- png
-- tiff
+This documentation is for beginners to learn the basics of using this powerful image manipulation image engine in a fast, easy way. 
 
 ## Installation
 
@@ -36,6 +36,15 @@ yarn add jimp
 ## Getting Started - Reading and Writing an Image File
 
 To start, an image must be read so that manipulations can be performed on such an image.  To do so, JIMP must first **read** an image file.
+
+JIMP can manipulate various image types, such as:
+- bmp
+- gif
+- jpeg/jpg
+- png
+- tiff
+
+Non-supported image types will provide an error.
 
 ### The Jimp.read() Method
 
@@ -161,9 +170,139 @@ Jimp.read("./images/crayon.png").then(function(img){
 The Result is that:
 ![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image Rotated Clockwise 90 Degrees](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/rotate-ex2.png?raw=true)
 
+### Flipping
+
+The **flip** method allows the user to flip an image over a horizontal axis and/or vertical axis.  The flip method takes two arguments:
+- a boolean value to denote whether to flip the image over the horizontal axis; and 
+- a boolean value to denote whether to flip the image over the vertical axis.
+
+#### Flip image horizontally
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image is flipped over the horizontal axis, then written to a file on the hard disk.  
+	img.flip(true, false).write("./images/flip-ex1.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image Flipped Horizontally](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/flip-ex1.png?raw=true)
+
+#### Flip image vertically
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image is flipped over the vertical axis, then written to a file on the hard disk.  
+	img.flip(false, true).write("./images/flip-ex2.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image Flipped Vertically](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/flip-ex2.png?raw=true)
+
+#### Flip image horizontally and vertically
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image is flipped over both the horizontal and the vertical axis, then written to a file on the hard disk.  
+	img.flip(true, true).write("./images/flip-ex3.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image Flipped Vertically](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/flip-ex3.png?raw=true)
 ### Resizing
 
 ## Combined Examples
+
+## Complete List of Manipulations
+
+Resize
+```js
+image.contain( w, h[, alignBits || mode, mode] );    // scale the image to the given width and height, some parts of the image may be letter boxed
+image.cover( w, h[, alignBits || mode, mode] );      // scale the image to the given width and height, some parts of the image may be clipped
+image.resize( w, h[, mode] );     // resize the image. Jimp.AUTO can be passed as one of the values.
+image.scale( f[, mode] );         // scale the image by the factor f
+image.scaleToFit( w, h[, mode] ); // scale the image to the largest size that fits inside the given width and height
+
+// An optional resize mode can be passed with all resize methods.
+```
+
+Crop
+```js
+
+image.autocrop([tolerance, frames]); // automatically crop same-color borders from image (if any), frames must be a Boolean
+image.autocrop(options);          // automatically crop same-color borders from image (if any), options may contain tolerance, cropOnlyFrames, cropSymmetric, leaveBorder
+image.crop( x, y, w, h );         // crop to the given region
+```
+
+Composing
+```js
+image.blit( src, x, y, [srcx, srcy, srcw, srch] );
+                                  // blit the image with another Jimp image at x, y, optionally cropped.
+image.composite( src, x, y, [{ mode, opacitySource, opacityDest }] );     // composites another Jimp image over this image at x, y
+image.mask( src, x, y );          // masks the image with another Jimp image at x, y using average pixel value
+image.convolute( kernel );        // applies a convolution kernel matrix to the image or a region
+```
+
+Flip and Rotate
+```js
+image.flip( horz, vert );         // flip the image horizontally or vertically
+image.mirror( horz, vert );       // an alias for flip
+image.rotate( deg[, mode] );      // rotate the image counter-clockwise by a number of degrees. Optionally, a resize mode can be passed. If `false` is passed as the second parameter, the image width and height will not be resized.
+```
+
+Color
+```js
+image.brightness( val );          // adjust the brighness by a value -1 to +1
+image.contrast( val );            // adjust the contrast by a value -1 to +1
+image.dither565();                // ordered dithering of the image and reduce color space to 16-bits (RGB565)
+image.greyscale();                // remove colour from the image
+image.invert();                   // invert the image colours
+image.normalize();                // normalize the channels in an image
+```
+
+Alpha channel
+```js
+image.hasAlpha();                     // determines if an image contains opaque pixels
+image.fade( f );                  // an alternative to opacity, fades the image by a factor 0 - 1. 0 will haven no effect. 1 will turn the image
+image.opacity( f );               // multiply the alpha channel by each pixel by the factor f, 0 - 1
+image.opaque();                   // set the alpha channel on every pixel to fully opaque
+image.background( hex );          // set the default new pixel colour (e.g. 0xFFFFFFFF or 0x00000000) for by some operations (e.g. image.contain and
+```
+
+Blurs
+```js
+image.gaussian( r );              // Gaussian blur the image by r pixels (VERY slow)
+image.blur( r );                  // fast blur the image by r pixels
+```
+
+Effects
+```js
+image.posterize( n );             // apply a posterization effect with n level
+image.sepia();                    // apply a sepia wash to the image
+image.pixelate( size[, x, y, w, h ]);  // apply a pixelation effect to the image or a region
+```
+
+3D
+```js
+image.displace( map, offset );    // displaces the image pixels based on the provided displacement map. Useful for making stereoscopic 3D images.
+```
 
 
 
