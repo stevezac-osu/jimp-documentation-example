@@ -121,7 +121,49 @@ Jimp.read("./file_to_read.jpg").then(function(img){
 });
 ```
 
-## Basic Manipulations
+## Example Manipulations
+
+### Rotating
+
+The **rotate** method can rotate an image.  The **rotate** method takes a number value that represents the number of degrees to rotate the image.  The image will be rotated counter-clockwise for positive numbers and clockwise for negative numbers.
+
+#### Rotating Counterclockwise 90-Degrees
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image is rotated 90 degrees counterclockwise, then written to a file on the hard disk.  
+	img.rotate(90).write("./images/rotate-ex1.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image Rotated Counter Clockwise 90 Degrees](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/rotate-ex1.png?raw=true)
+
+#### Rotating Clockwise 90-Degrees
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image is rotated 90 degrees clockwise, then written to a file on the hard disk.  
+	img.rotate(-90).write("./images/rotate-ex2.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image Rotated Clockwise 90 Degrees](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/rotate-ex2.png?raw=true)
+
+### Resizing
+
+## Combined Examples
 
 
 
