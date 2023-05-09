@@ -11,8 +11,10 @@
   - [Rotating](#rotating)
   - [Flipping](#flipping)
   - [Resizing](#resizing)
-- [Combined Examples](#combined-examples)
+  - [Color](#color)
 - [Complete List of Manipulations](#complete-list-of-manipulations)
+- [Additional Resources](#additional-resources)
+
 
 ## Introduction
 JIMP is an image processing library for Node written in JavaScript/TypeScript, with zero native dependencies.  JIMP is an acronym that stands for "JavaScript Image Manipulation Program."
@@ -284,6 +286,8 @@ The Result is that:
 You can see that the image now retained it's original aspect ratio, but rescaled to the maximum of the sizes that it was provided.
 
 ### Color
+<p align="right"><a href="#jimp---javascript-image-manipulation-program">Back to Table of Contents</a></p>
+
 There are four example color methods we will review, **brightness**, **contrast**, **greyscale**, and **invert**
 
 Both the **greyscale** and the **invert** methods take no arguments.  However, both the **brightness** and the **contrast** methods take one number argument, between -1 and 1, that represents the percentage to increase (positive) or decrease (negative) the brightness or the contrast of the image.
@@ -391,9 +395,6 @@ The Result is that:
 ![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image inverted](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/invert.png?raw=true)
 
 
-## Combined Examples
-<p align="right"><a href="#jimp---javascript-image-manipulation-program">Back to Table of Contents</a></p>
-
 ## Complete List of Manipulations
 <p align="right"><a href="#jimp---javascript-image-manipulation-program">Back to Table of Contents</a></p>
 
@@ -468,6 +469,10 @@ image.pixelate( size[, x, y, w, h ]); // apply a pixelation effect to the image 
 image.displace( map, offset ); // displaces the image pixels based on the provided displacement map. Useful for making stereoscopic 3D images.
 ```
 
+## Additional Resources
+<p align="right"><a href="#jimp---javascript-image-manipulation-program">Back to Table of Contents</a></p>
+
+Additional information about how to use JIMP can be found at the [JIMP github repository](https://github.com/jimp-dev/jimp).
 
 
 
