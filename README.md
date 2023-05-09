@@ -1,4 +1,5 @@
 # JIMP - JavaScript Image Manipulation Program
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true)
 
 ## Introduction
 JIMP is an image processing library for Node written in JavaScript/TypeScript, with zero native dependencies.  JIMP is an acronym that stands for "JavaScript Image Manipulation Program." 
@@ -24,11 +25,11 @@ yarn add jimp
 
 ```
 
-## Basic Usage - Reading a Image File
+## Getting Started - Reading and Writing an Image File
 
 To start, an image must be read so that manipulations can be performed on such an image.  To do so, JIMP must first **read** an image file.
 
-### The Read() Method
+### The Jimp.read() Method
 
 The **read** method can be executed to read an image using a callback function or using Promises.
 
@@ -76,7 +77,7 @@ Jimp.read("./file_to_read.jpg").then(function(img){...}).catch(function(err){...
 Jimp.read("/home/user/folder/file_to_read.jpg").then(function(img){...}).catch(function(err){...})
 
 // Jimp.read(URL)
-Jimp.read("http://").then(function(img){...}).catch(function(err){...})
+Jimp.read("https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true").then(function(img){...}).catch(function(err){...})
 
 // Jimp.read(width, height[, hexcolor])
 Jimp.read(100, 100, "#ffffff").then(function(img){...}).catch(function(err){...})
@@ -92,4 +93,26 @@ Jimp.read(100, 100).then(function(img){...}).catch(function(err){...})
 // Jimp.read(width, height[, hexcolor])
 Jimp.read(100, 100, "#ffffff").then(function(img){...}).catch(function(err){...})
 ```
+
+### The img.write() Method
+
+Once you have performed various modifications to an image, you may likely want to write that image to a file.  To do so, you can use the img.write() method.
+
+For example:
+```js
+var Jimp = require("jimp");
+
+Jimp.read("./file_to_read.jpg").then(function(img){
+	// On the image object that you receive in the callback, you can perform various manipulation functions
+	// You can also write such a file to the hard disk.
+	// In the example below, the image is rotated 90 degrees, then written to a file on the hard disk.  
+	img.rotate(90).write("./rotated_file_to_write.jpg")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});
+```
+
+## Basic Usages - Resizing an Image
+
 
