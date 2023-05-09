@@ -22,6 +22,7 @@ JIMP is an image processing library for Node written in JavaScript/TypeScript, w
 This documentation is for beginners to learn the basics of using this powerful image manipulation image engine in a fast, easy way. 
 
 ## Installation
+<p align="right"><a href="#jimp---javascript-image-manipulation-program">Back to Table of Contents</a></p>
 
 ```js
 
@@ -36,6 +37,7 @@ yarn add jimp
 ```
 
 ## Getting Started - Reading and Writing an Image File
+<p align="right"><a href="#jimp---javascript-image-manipulation-program">Back to Table of Contents</a></p>
 
 To start, an image must be read so that manipulations can be performed on such an image.  To do so, JIMP must first **read** an image file.
 
