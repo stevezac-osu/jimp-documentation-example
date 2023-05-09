@@ -1,4 +1,4 @@
-# JIMP - JavaScript Image Manipulation Program
+# JIMP - JavaScript Image Manipulation Program - Beginner's Guide
 ![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true)
 
 ## Table of Contents
