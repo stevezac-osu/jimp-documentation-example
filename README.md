@@ -234,6 +234,58 @@ The Result is that:
 ### Resizing
 <p align="right"><a href="#jimp---javascript-image-manipulation-program">Back to Table of Contents</a></p>
 
+There are various ways to resize an image.  However there are two that we will focus on in this documentation: the **resize** and the **scaleToFit** methods.
+
+#### Resize an Image
+The **resize** method takes two arguments:
+- a width integer (in pixels); and
+- a height integer (in pixels).
+
+The primary example is resizing the image to an oblong image shape:
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image is resized from 256px (width) by 256px (height) to 100px (width) by 150px (height), then written to a file on the hard disk.  
+	img.resize(100, 150).write("./images/resize-ex1.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image resized to 100 by 150](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/resize-ex1.png?raw=true)
+
+#### Scaling an Image to Fit
+The **scaleToFit** method also takes two arguments:
+- a width integer (in pixels); and
+- a height integer (in pixels).
+
+Although they would seem the same, given the exact same parameters yields a different result:
+
+```js
+var Jimp = require("jimp");
+
+// the crayon.png image will be read
+Jimp.read("./images/crayon.png").then(function(img){
+	
+	//the image is scaled to fit from 256px (width) by 256px (height) to an area of 100px (width) by 150px (height), then written to a file on the hard disk.  
+	img.scaleToFit(100, 150).write("./images/resize-ex2.png")
+}).catch(function(err){
+	//if an error is provided, you can throw the error to the system or handle as necessary
+	if (err) throw err;
+});  
+```
+The Result is that:
+![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image resized to 100 by 100](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/resize-ex2.png?raw=true)
+
+You can see that the image now retained it's original aspect ratio, but rescaled to the maximum of the sizes that it was provided.
+
+
+
+
 ## Combined Examples
 <p align="right"><a href="#jimp---javascript-image-manipulation-program">Back to Table of Contents</a></p>
 
