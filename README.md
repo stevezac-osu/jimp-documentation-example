@@ -47,7 +47,7 @@ JIMP can manipulate various image types, such as:
 Non-supported image types will provide an error.
 
 ### The Jimp.read() Method
-[Back to Table of Contents](#jimp---javascript-image-manipulation-program)
+<p align="right">[Back to Table of Contents](#jimp---javascript-image-manipulation-program)</p>
 
 The **read** method can be executed to read an image using a callback function or using Promises.
 
@@ -113,7 +113,7 @@ Jimp.read(100, 100, "#ffffff").then(function(img){...}).catch(function(err){...}
 ```
 
 ### The img.write() Method
-[Back to Table of Contents](#jimp---javascript-image-manipulation-program)
+<p align="right">[Back to Table of Contents](#jimp---javascript-image-manipulation-program)</p>
 
 Once you have performed various modifications to an image, you may likely want to write that image to a file.  To do so, you can use the img.write() method.
 
@@ -135,7 +135,7 @@ Jimp.read("./file_to_read.jpg").then(function(img){
 ## Example Manipulations
 
 ### Rotating
-[Back to Table of Contents](#jimp---javascript-image-manipulation-program)
+<p align="right">[Back to Table of Contents](#jimp---javascript-image-manipulation-program)</p>
 
 The **rotate** method can rotate an image.  The **rotate** method takes a number value that represents the number of degrees to rotate the image.  The image will be rotated counter-clockwise for positive numbers and clockwise for negative numbers.
 
@@ -174,7 +174,7 @@ The Result is that:
 ![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image Rotated Clockwise 90 Degrees](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/rotate-ex2.png?raw=true)
 
 ### Flipping
-[Back to Table of Contents](#jimp---javascript-image-manipulation-program)
+<p align="right">[Back to Table of Contents](#jimp---javascript-image-manipulation-program)</p>
 
 The **flip** method allows the user to flip an image over a horizontal axis and/or vertical axis.  The flip method takes two arguments:
 - a boolean value to denote whether to flip the image over the horizontal axis; and 
@@ -232,13 +232,13 @@ The Result is that:
 ![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true) becomes ![Crayon Image Flipped Vertically](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/flip-ex3.png?raw=true)
 
 ### Resizing
-[Back to Table of Contents](#jimp---javascript-image-manipulation-program)
+<p align="right">[Back to Table of Contents](#jimp---javascript-image-manipulation-program)</p>
 
 ## Combined Examples
-[Back to Table of Contents](#jimp---javascript-image-manipulation-program)
+<p align="right">[Back to Table of Contents](#jimp---javascript-image-manipulation-program)</p>
 
 ## Complete List of Manipulations
-[Back to Table of Contents](#jimp---javascript-image-manipulation-program)
+<p align="right">[Back to Table of Contents](#jimp---javascript-image-manipulation-program)</p>
 
 Resize
 ```js
