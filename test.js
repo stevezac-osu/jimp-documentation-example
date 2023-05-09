@@ -1,0 +1,1 @@
+var Jimp = require("jimp");
