@@ -1,6 +1,14 @@
 # JIMP - JavaScript Image Manipulation Program
 ![Crayon Image](https://github.com/stevezac-osu/jimp-documentation-example/blob/main/images/crayon.png?raw=true)
 
+## Table of Contents
+
+- [Installation](#installation)
+- [Getting Started - Reading and Writing an Image File](#getting-started---reading-and-writing-an-image-file) 
+  - [The Jimp.read() Method](#the-jimpread-method)
+  - [The Image.write() Method](#the-imgwrite-method)
+- [Basic Manipulations](#basic-manipulations)
+
 ## Introduction
 JIMP is an image processing library for Node written in JavaScript/TypeScript, with zero native dependencies.  JIMP is an acronym that stands for "JavaScript Image Manipulation Program." 
 
@@ -113,6 +121,8 @@ Jimp.read("./file_to_read.jpg").then(function(img){
 });
 ```
 
-## Basic Usages - Resizing an Image
+## Basic Manipulations
+
+
 
 
